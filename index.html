@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prize Button Jumpscare</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #111;
+      margin: 0;
+    }
+    .main-content {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .huge-text {
+      font-size: 3rem;
+      color: #fff200;
+      font-weight: bold;
+      text-shadow: 2px 2px 8px #000, 0 0 20px #ff0000;
+    }
+    .prize-btn {
+      font-size: 2rem;
+      padding: 20px 40px;
+      background: #ff0000;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 0 20px #ff0000;
+      transition: background 0.2s;
+    }
+    .prize-btn:hover {
+      background: #b30000;
+    }
+    #jumpscare {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.95);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      flex-direction: column;
+    }
+    #jumpscare img {
+      max-width: 80vw;
+      max-height: 80vh;
+      box-shadow: 0 0 40px #ff0000;
+      border-radius: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-content">
+    <span class="huge-text">CLICK THIS BUTTON FOR A PRIZEEE!!!!</span>
+    <button class="prize-btn" id="prize-btn">🎁</button>
+  </div>
+  <div id="jumpscare">
+    <img src="jumpscare.jpg" alt="Jumpscare">
+    <audio id="jumpscare-audio" src="jumpscare-sound.mp3"></audio>
+  </div>
+  <script>
+    const btn = document.getElementById('prize-btn');
+    const jumpscare = document.getElementById('jumpscare');
+    const audio = document.getElementById('jumpscare-audio');
+    btn.addEventListener('click', () => {
+      jumpscare.style.display = 'flex';
+      audio.currentTime = 0;
+      audio.play();
+      setTimeout(() => {
+        jumpscare.style.display = 'none';
+      }, 2500);
+    });
+  </script>
+</body>
+</html> 
