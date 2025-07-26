@@ -18,6 +18,7 @@
       display: flex;
       align-items: center;
       gap: 32px;
+      flex-wrap: wrap;
     }
     .huge-text {
       font-size: 3rem;
@@ -50,10 +51,28 @@
       flex-direction: column;
     }
     #jumpscare img {
-      max-width: 80vw;
-      max-height: 80vh;
+      max-width: 90vw;
+      max-height: 60vh;
       box-shadow: 0 0 40px #ff0000;
       border-radius: 16px;
+    }
+    @media (max-width: 600px) {
+      .main-content {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .huge-text {
+        font-size: 2rem;
+        text-align: center;
+      }
+      .prize-btn {
+        font-size: 1.2rem;
+        padding: 14px 24px;
+      }
+      #jumpscare img {
+        max-width: 98vw;
+        max-height: 40vh;
+      }
     }
   </style>
 </head>
